@@ -48,7 +48,12 @@ export const signup = async (req, res) => {
 
 export const verifyEmail = async (req, res) => {
   try {
-    const { token } = req.params;
+    let { token } = req.params;
+
+    // Trim leading colon if present (in case URL is copied with it)
+    if (token.startsWith(':')) {
+      token = token.slice(1);
+    }
 
     const user = await User.findOne({ verificationToken: token });
     if (!user)
