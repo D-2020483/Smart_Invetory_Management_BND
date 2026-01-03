@@ -22,7 +22,6 @@ const app = express();
 
 
 const allowedOrigins = [
-  "http://localhost:5173",
   "https://inventory-management-bnd-dinithi.netlify.app",
 ];
 
